@@ -5,7 +5,7 @@
   "main": "backend/bin/www",
   "scripts": {
     "test": "./build.sh",
-    "start": "node .backend/bin/www"
+    "start": "node backend/bin/www"
   },
   "repository": {
     "type": "git",
