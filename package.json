@@ -4,7 +4,7 @@
   "description": "Backend for CS 97 Project smart calendar",
   "main": "backend/bin/www",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./build.sh",
     "start": "node .backend/bin/www"
   },
   "repository": {
