@@ -1,0 +1,20 @@
+{
+  "name": "smart-calendar-backend",
+  "version": "1.0.0",
+  "description": "Backend for CS 97 Project smart calendar",
+  "main": "backend/bin/www",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .backend/bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clumsyndicate/Smart-Calendar-backend.git"
+  },
+  "author": "JZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Clumsyndicate/Smart-Calendar-backend/issues"
+  },
+  "homepage": "https://github.com/Clumsyndicate/Smart-Calendar-backend#readme"
+}
