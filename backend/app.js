@@ -26,20 +26,22 @@ app.use('/api', jwt({
     secret: config.webtokenkey,
     algorithms: ['HS256']
 }).unless({
-    path: ['/api/login', '/api/register']
+    path: ['/api/login', '/api/register', '/api/classlist']
 }));
 app.use('/api/myProfile', require('./routes/myProfile'))
+app.use('/api/classlist', require('./routes/classlist'))
 
 app.use(express.static(path.join(__dirname, "../frontend/egglenderlogin", "build")));
 // app.use(express.static("public"));
 
-app.use((err, req, res, next) => {
+app.use('/api', (err, req, res, next) => {
     if (err instanceof Joi.ValidationError) {
         res.send({
             status: 1,
             msg: [err.details[0].context.label, err.details[0].message]
         })
     }
+    console.log(err, req);
     if (err.name === 'UnauthorizedError') {
         return res.send({
             status: 1,

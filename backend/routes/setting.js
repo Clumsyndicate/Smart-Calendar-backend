@@ -1,18 +1,20 @@
 const express = require('express');
 const router = express.Router();
-
+const checkToken = require('../funcs/checkToken');
+const getEnrollList = require('../funcs/getEnrollList');
 
 router.post('/',  (req, res) =>
 {
-    res.send(
-    {
-        status:0,
-        userName:req.body.userName,
-        msg:'Send message to profile successfully',
-        array:["CS 666", "QAQ 嘤嘤嘤","Physics 1B", "Math 33A",""],
-        
-    }
-)   
+    checkToken(req, res, (decoded) => {
+        // Do something
+        let enrollList = getEnrollList(decoded.userName);
+        res.send({
+            status:0,
+            userName:decoded.userName,
+            msg:'Send message to profile successfully',
+            array: enrollList
+        })
+    });    
 });
 
 module.exports = router;
