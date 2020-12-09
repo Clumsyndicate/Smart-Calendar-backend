@@ -1,17 +1,27 @@
 const express = require('express');
 const router = express.Router();
+const checkToken = require('../funcs/checkToken');
+const setEnrollList = require('../funcs/setEnrollList');
 
+router.post('/', (req, res) => {
 
-router.post('/',  (req, res) =>
-{
-    res.send(
-    {
-        status:0,
-        array:req.body.array,
-        login: req.body.login,
-        userName: req.body.userName,
-    }
-)   
+    checkToken(req, res, (decoded) => {
+        // Do something
+        let success = setEnrollList(decoded.userName, req.body.array);
+        if (success) {
+            res.send({
+                status: 0,
+                array: req.body.array,
+                userName: req.body.userName,
+            });
+        } else {
+            res.send({
+                status: 1,
+                msg: "Failed to set enroll list or no change is made."
+            })
+        }
+
+    });
 });
 
 module.exports = router;

@@ -1,16 +1,15 @@
 const database = require('../database')
 
-module.exports = (username) => {
+module.exports = (username, callback) => {
     const sql = 'SELECT * FROM users WHERE userName=?';
-    console.log("username");
-    console.log(username);
     database(sql, username, result => {
         if (result.length !== 1) {
-            return res.send({
-                status: 1,
-                msg: 'Username does not existed',
-            });
+            callback(null);
         }
-        return result[0].classes ?? []
+        if (result[0].classes) {
+            callback(JSON.parse(result[0].classes));
+        } else {
+            callback([]);
+        }
     });
 };
