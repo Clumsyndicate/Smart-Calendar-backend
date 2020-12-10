@@ -31,6 +31,7 @@ router.post('/', function (req, res, next) {
                     } = res
                     let classes = JSON.parse(res.classes) ?? [];
                     let overlapClasses = new Array();
+                    console.log(classes);
                     classes.forEach(c => {
                         if (thisUserClasses.has(c)) {
                             overlapClasses.push(c);
