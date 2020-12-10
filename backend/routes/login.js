@@ -5,8 +5,9 @@ const config = require('../config')
 var jwt = require('jsonwebtoken');
 
 router.post('/', (req, res) => {
-    const sql = 'SELECT * FROM users WHERE userName=?';
+    const sql = 'SELECT userPwd FROM users WHERE userName=?';
     database(sql, req.body.userName, result => {
+        console.log(result);
         if (result.length !== 1) {
             return res.send({
                 status: 1,

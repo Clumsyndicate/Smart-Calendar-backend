@@ -6,10 +6,9 @@ const {registerSchema} = require('../schema/register')
 const database = require('../database')
 
 router.post('/', isvalid(registerSchema), (req, res) => {
-    console.log(req.body);
     const sql = 'SELECT * FROM users WHERE userName=?';
     database(sql, req.body.userName, result=>{
-        if(result.length >= 1)
+        if(result.length > 0)
         {
             return res.send({
                 status:1,

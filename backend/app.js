@@ -46,7 +46,6 @@ app.use('/api', (err, req, res, next) => {
             msg: [err.details[0].context.label, err.details[0].message]
         })
     }
-    console.log(err, req);
     if (err.name === 'UnauthorizedError') {
         return res.send({
             status: 1,
@@ -78,6 +77,7 @@ app.use('/api/register', require('./routes/register'));
 app.use('/api/login', require('./routes/login'))
 app.use('/api/setting', require('./routes/setting'))
 app.use('/api/settingupdate', require('./routes/settingUpdate'))
+app.use('/api/friendlist', require('./routes/friends'));
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
