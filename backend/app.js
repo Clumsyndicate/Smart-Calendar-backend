@@ -39,24 +39,7 @@ app.use('/api', function (req, res, next) {
 app.use(express.static(path.join(__dirname, "../frontend/egglenderlogin", "build")));
 // app.use(express.static("public"));
 
-app.use('/api', (err, req, res, next) => {
-    if (err instanceof Joi.ValidationError) {
-        res.send({
-            status: 1,
-            msg: [err.details[0].context.label, err.details[0].message]
-        })
-    }
-    if (err.name === 'UnauthorizedError') {
-        return res.send({
-            status: 1,
-            msg: 'TOKEN has some error'
-        });
-    }
-    res.send({
-        status: 1,
-        msg: err.message || err
-    })
-})
+
 
 
 
@@ -74,6 +57,24 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, "../frontend/egglenderlogin", "build", "index.html")))
 app.use('/api/register', require('./routes/register'));
+app.use('/api', (err, req, res, next) => {
+    if (err instanceof Joi.ValidationError) {
+        res.send({
+            status: 1,
+            msg: [err.details[0].context.label, err.details[0].message]
+        })
+    }
+    if (err.name === 'UnauthorizedError') {
+        return res.send({
+            status: 1,
+            msg: 'TOKEN has some error'
+        });
+    }
+    res.send({
+        status: 1,
+        msg: err.message || err
+    })
+});
 app.use('/api/login', require('./routes/login'))
 app.use('/api/setting', require('./routes/setting'))
 app.use('/api/settingupdate', require('./routes/settingUpdate'))
