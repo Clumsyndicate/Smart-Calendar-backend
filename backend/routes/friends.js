@@ -21,6 +21,7 @@ router.post('/', function (req, res, next) {
                         JSON.parse(res.classes).forEach(item => thisUserClasses.add(item));
                     }
                 });
+                thisUserClasses.delete("");
 
                 let returnResult = new Array();
                 result.forEach((res, index) => {
