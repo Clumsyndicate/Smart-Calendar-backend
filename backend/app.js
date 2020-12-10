@@ -78,6 +78,9 @@ app.use('/api/login', require('./routes/login'))
 app.use('/api/setting', require('./routes/setting'))
 app.use('/api/settingupdate', require('./routes/settingUpdate'))
 app.use('/api/friendlist', require('./routes/friends'));
+app.use('/api/getschedule', require('./routes/getSchedule'));
+app.use('/api/setschedule', require('./routes/setSchedule'));
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));

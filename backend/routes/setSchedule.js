@@ -1,22 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const checkToken = require('../funcs/checkToken');
-const getEnrollList = require('../funcs/getEnrollList');
+const database = require('../database');
 
 router.post('/', (req, res) => {
     checkToken(req, res, (decoded) => {
-        // Do something
-        getEnrollList(decoded.userName, (enrollList, contactInfo) => {
-            console.log(enrollList);
-            res.send({
-                status: 0,
-                userName: decoded.userName,
-                msg: 'Send message to profile successfully',
-                array: enrollList,
-                contactInfo: contactInfo
-            })
-        });
-
+        let userName = decoded.userName
+        const sql = `UPDATE users SET schedule='${JSON.stringify(res.body)}' WHERE userName='${userName}'`;
+        database(sql, decoded.userName, result => {
+            if (result.affectedRows === 1) {
+                res.send({
+                    status: 0,
+                    msg: "Schedule set a success!"
+                })
+            } else {
+                res.send({
+                    status: 1,
+                    msg: "Schedule set failed!"
+                })
+            }
+        })
     });
 });
 

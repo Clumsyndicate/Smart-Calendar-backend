@@ -7,7 +7,7 @@ module.exports = (username, callback) => {
             callback(null);
         }
         if (result[0].classes) {
-            callback(JSON.parse(result[0].classes), result[0].contact);
+            callback(JSON.parse(result[0].classes), JSON.parse(result[0].contact));
         } else {
             callback([], []);
         }
