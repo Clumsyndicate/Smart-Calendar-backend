@@ -17,7 +17,8 @@ router.post('/', isvalid(registerSchema), (req, res) => {
         }
         const sql = 'INSERT INTO users set ?';
         const {userName, userEmail, userPwd} = req.body;
-        database(sql, {userName,userEmail,userPwd}, result => {
+        const contact = {}
+        database(sql, {userName,userEmail,userPwd, contact}, result => {
             if (result.affectedRows === 1)
             {
                 return res.send({
