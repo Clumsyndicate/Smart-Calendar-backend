@@ -42,7 +42,7 @@ router.post('/', function (req, res, next) {
                         classes: overlapClasses,
                         total: overlapClasses.length,
                         img: avatar,
-                        contact: contact
+                        contact: JSON.parse(contact)
                     });
                 })
                 // Create items array
