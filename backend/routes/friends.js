@@ -25,6 +25,9 @@ router.post('/', function (req, res, next) {
 
                 let returnResult = new Array();
                 result.forEach((res, index) => {
+                    if (res.userName === decoded.userName) {
+                        continue;
+                    }
                     let {
                         userName,
                         avatar,
