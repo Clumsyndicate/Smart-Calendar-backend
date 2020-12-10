@@ -1,0 +1,80 @@
+[
+    {
+      "id": "1",
+      "startDate": "Thu Oct 01 2020 08:00:00 GMT-0700 (PST)",
+      "endDate": "Thu Oct 01 2020 08:00:00 GMT-0700 (PST)",
+      "text": "Fall Instruction Begins"
+    },
+    {
+      "id": "2",
+      "text": "COM SCI 97 DIS 1A (Online - Recorded)",
+      "startDate": "Fri Oct 02 2020 10:00:00 GMT-0700 (PST)",
+      "endDate": "Fri Oct 02 2020 11:50:00 GMT-0700 (PST)",
+      "location": "https://ccle.ucla.edu/course/view/20F-COMSCI97-1",
+      "recurrenceRule": "FREQ=WEEKLY;UNTIL=20201211T234500Z;BYDAY=FR"
+    },
+    {
+      "id": "3",
+      "text": "MATH 33A DIS 1B (Online)",
+      "startDate": "Thu Oct 01 2020 08:00:00 GMT-0700 (PST)",
+      "endDate": "Thu Oct 01 2020 08:50:00 GMT-0700 (PST)",
+      "location": "https://ccle.ucla.edu/course/view/20F-MATH33A-1",
+      "recurrenceRule": "FREQ=WEEKLY;UNTIL=20201211T234500Z;BYDAY=TH"
+    },
+    {
+      "id": "3",
+      "text": "COM SCI 97 LEC 1 (Online - Recorded)",
+      "startDate": "Thu Oct 01 2020 16:00:00 GMT-0700 (PST)",
+      "endDate": "Thu Oct 01 2020 17:50:00 GMT-0700 (PST)",
+      "location": "https://ccle.ucla.edu/course/view/20F-COMSCI97-1",
+      "recurrenceRule": "FREQ=WEEKLY;UNTIL=20201211T234500Z;BYDAY=TU,TH"
+    },
+    {
+      "id": "2",
+      "text": "PHYSCI 5 LEC 1 (Online - Recorded)",
+      "startDate": "Fri Oct 02 2020 09:00:00 GMT-0700 (PST)",
+      "endDate": "Fri Oct 02 2020 09:50:00 GMT-0700 (PST)",
+      "location": "https://ccle.ucla.edu/course/view/20F-PHYSCI5-1",
+      "recurrenceRule": "FREQ=WEEKLY;UNTIL=20201211T234500Z;BYDAY=MO,WE,FR"
+    },
+    {
+      "id": "3",
+      "text": "MATH 33A LEC 1 (Online - Recorded)",
+      "startDate": "Fri Oct 02 2020 08:00:00 GMT-0700 (PST)",
+      "endDate": "Fri Oct 02 2020 08:50:00 GMT-0700 (PST)",
+      "location": "https://ccle.ucla.edu/course/view/20F-MATH33A-1",
+      "recurrenceRule": "FREQ=WEEKLY;UNTIL=20201211T234500Z;BYDAY=MO,WE,FR"
+    },
+    {
+      "id": "4",
+      "text": "COM SCI 180 DIS 1C (Online - Recorded)",
+      "startDate": "Fri Oct 02 2020 10:00:00 GMT-0700 (PST)",
+      "endDate": "Fri Oct 02 2020 11:50:00 GMT-0700 (PST)",
+      "location": "https://ccle.ucla.edu/course/view/20F-COMSCI180-1",
+      "recurrenceRule": "FREQ=WEEKLY;UNTIL=20201211T234500Z;BYDAY=FR"
+    },
+    {
+      "id": "6",
+      "startDate": "Mon Oct 05 2020 10:00:00 GMT-0700 (PST)",
+      "endDate": "Mon Oct 05 2020 11:50:00 GMT-0700 (PST)",
+      "location": "https://ccle.ucla.edu/course/view/20F-COMSCI180-1",
+      "recurrenceRule": "FREQ=WEEKLY;UNTIL=20201211T234500Z;BYDAY=TU,TH",
+      "text": "COM SCI 180 LEC 1 (Online - Recorded)"
+    },
+    {
+      "id": "8",
+      "startDate": "Thu Dec 01 2020 15:00:00 GMT-0800 (PST)",
+      "endDate": "Thu Dec 01 2020 15:50:00 GMT-0800 (PST)",
+      "location": "https://ccle.ucla.edu/course/view/20F-MATH33A-1",
+      "recurrenceRule": "FREQ=WEEKLY;UNTIL=20201220T234500Z;BYDAY=MO,WE,FR",
+      "text": "Math32B"
+    },
+    {
+      "id": "9",
+      "startDate": "Thu Dec 01 2020 15:00:00 GMT-0800 (PST)",
+      "endDate": "Thu Dec 01 2020 15:50:00 GMT-0800 (PST)",
+      "location": "https://ccle.ucla.edu/course/view/20F-MATH33A-1",
+      "recurrenceRule": "FREQ=WEEKLY;UNTIL=20201220T234500Z;BYDAY=TU",
+      "text": "Math32B Discussion"
+    }
+  ]

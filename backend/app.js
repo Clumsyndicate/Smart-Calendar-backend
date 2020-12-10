@@ -26,7 +26,7 @@ app.use('/api', jwt({
     secret: config.webtokenkey,
     algorithms: ['HS256']
 }).unless({
-    path: ['/api/login', '/api/register', '/api/classlist']
+    path: ['/api/login', '/api/register', '/api/classlist', '/api/schedule']
 }));
 app.use('/api/myProfile', require('./routes/myProfile'))
 app.use('/api/classlist', require('./routes/classlist'))
@@ -80,6 +80,9 @@ app.use('/api/settingupdate', require('./routes/settingUpdate'))
 app.use('/api/friendlist', require('./routes/friends'));
 app.use('/api/getschedule', require('./routes/getSchedule'));
 app.use('/api/setschedule', require('./routes/setSchedule'));
+// app.get('/api/schedule', (req, res) => {
+//     res.sendFile("")
+// })
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
