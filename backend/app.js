@@ -26,7 +26,7 @@ app.use('/api', jwt({
     secret: config.webtokenkey,
     algorithms: ['HS256']
 }).unless({
-    path: ['/api/login', '/api/register', '/api/classlist', '/api/schedule']
+    path: ['/api/login', '/api/register', '/api/classlist', '/api/schedule', '/api/setschedule', '/api/getschedule']
 }));
 app.use('/api/myProfile', require('./routes/myProfile'))
 app.use('/api/classlist', require('./routes/classlist'))
@@ -55,7 +55,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, "../frontend/egglenderlogin", "build", "index.html")))
 app.use('/api/register', require('./routes/register'));
 app.use('/api', (err, req, res, next) => {
     if (err instanceof Joi.ValidationError) {
@@ -81,6 +80,9 @@ app.use('/api/settingupdate', require('./routes/settingUpdate'))
 app.use('/api/friendlist', require('./routes/friends'));
 app.use('/api/getschedule', require('./routes/getSchedule'));
 app.use('/api/setschedule', require('./routes/setSchedule'));
+
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, "../frontend/egglenderlogin", "build", "index.html")))
+
 // app.get('/api/schedule', (req, res) => {
 //     res.sendFile("")
 // })
