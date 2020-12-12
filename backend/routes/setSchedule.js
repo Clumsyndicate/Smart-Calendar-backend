@@ -6,7 +6,9 @@ const database = require('../database');
 router.post('/', (req, res) => {
     checkToken(req, res, (decoded) => {
         let userName = decoded.userName
-        const sql = `UPDATE users SET schedule='${JSON.stringify(res.body)}' WHERE userName='${userName}'`;
+        // console.log(req.body);
+        const sql = `UPDATE users SET schedule='${JSON.stringify(req.body)}' WHERE userName='${userName}'`;
+        // console.log(sql);
         database(sql, decoded.userName, result => {
             if (result.affectedRows === 1) {
                 res.send({

@@ -26,7 +26,7 @@ app.use('/api', jwt({
     secret: config.webtokenkey,
     algorithms: ['HS256']
 }).unless({
-    path: ['/api/login', '/api/register', '/api/classlist', '/api/schedule', '/api/setschedule', '/api/getschedule']
+    path: ['/api/login', '/api/register', '/api/classlist', '/api/schedule']
 }));
 app.use('/api/myProfile', require('./routes/myProfile'))
 app.use('/api/classlist', require('./routes/classlist'))

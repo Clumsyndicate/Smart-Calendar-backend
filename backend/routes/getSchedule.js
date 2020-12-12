@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
                 let {
                     schedule
                 } = result[0];
-                console.log(result);
+                // console.log(result);
                 res.send(JSON.parse(schedule));
             } else {
                 res.send({
