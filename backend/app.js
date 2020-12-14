@@ -98,7 +98,7 @@ const database = require('./database');
 
 app.post(
     "/api/uploadAvatar",
-    upload.single("file"),
+    upload.single("avatarpic"),
     (req, res) => {
         checkToken(req, res, (decoded) => {
             // Do something
