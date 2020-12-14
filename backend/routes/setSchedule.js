@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
         // console.log(req.body);
         const sql = `UPDATE users SET schedule='${JSON.stringify(req.body)}' WHERE userName='${userName}'`;
         // console.log(sql);
-        database(sql, decoded.userName, result => {
+        database(sql, userName, result => {
             if (result.affectedRows === 1) {
                 res.send({
                     status: 0,
