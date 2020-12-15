@@ -100,6 +100,7 @@ app.post(
     "/api/uploadAvatar",
     upload.single("avatarpic"),
     (req, res) => {
+        console.log("Upload");
         checkToken(req, res, (decoded) => {
             // Do something
             const tempPath = req.file.path;
@@ -109,13 +110,11 @@ app.post(
             const targetPath = path.join(__dirname, `./public/avatars/${avatarFileName}`);
 
             const allowedFormats = [".png", ".jpg", ".jpeg"]
-
-            if (allowedFormats.indexOf() > -1) {
+            if (allowedFormats.indexOf(fileExt) > -1) {
                 fs.rename(tempPath, targetPath, err => {
                     if (err) return handleError(err, res);
 
                     const sql = `UPDATE users SET avatar='avatars/${avatarFileName}' WHERE userName='${decoded.userName}'`;
-                    // console.log(sql);
                     database(sql, decoded.userName, result => {
                         if (result.affectedRows === 1) {
                             res.send({
