@@ -13,16 +13,10 @@ var app = express();
 
 const Joi = require('@hapi/joi')
 const jwt = require('express-jwt')
-const config = require('./config')
+const config = require('./secrets')
 const multer = require("multer");
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-
 /* Login API */
-
-
 
 app.use('/api', jwt({
     secret: config.webtokenkey,
@@ -92,7 +86,10 @@ const handleError = (err, res) => {
     res
         .status(500)
         .contentType("text/plain")
-        .end("Oops! Something went wrong!");
+        .send({
+            status: 1,
+            msg: "Oops! Something went wrong!"
+        });
 };
 const database = require('./database');
 
@@ -140,7 +137,10 @@ app.post(
                     res
                         .status(403)
                         .contentType("text/plain")
-                        .end("Only .png .jpg or .jpeg files are allowed!");
+                        .send({
+                            status: 1,
+                            msg: "Only .png .jpg or .jpeg files are allowed!"
+                        });
                 });
             }
         });

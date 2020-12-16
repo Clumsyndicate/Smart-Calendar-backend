@@ -1,5 +1,5 @@
 var jwt = require('jsonwebtoken');
-const config = require('../config')
+const config = require('../secrets')
 
 module.exports = (req, res, success, defaultUser = null) => {
     if (defaultUser !== null) {
@@ -8,6 +8,7 @@ module.exports = (req, res, success, defaultUser = null) => {
             userName: defaultUser
         };
         success(decoded);
+        return;
     } else {
         // Use login token
         var token = req.headers['x-access-token'];
@@ -24,6 +25,7 @@ module.exports = (req, res, success, defaultUser = null) => {
                 message: 'Failed to authenticate token.'
             });
             success(decoded);
+            return;
         });
     }
 }

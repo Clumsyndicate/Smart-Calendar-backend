@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const database = require('../database')
-const config = require('../config')
+const config = require('../secrets')
 var jwt = require('jsonwebtoken');
 
 router.post('/', (req, res) => {
