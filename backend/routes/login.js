@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const database = require('../database')
-const config = require('../config')
+const config = require('../secrets')
 var jwt = require('jsonwebtoken');
 
 router.post('/', (req, res) => {
     const sql = 'SELECT userPwd FROM users WHERE userName=?';
+    console.log("Logging in " + req.body.userName);
     database(sql, req.body.userName, result => {
-        console.log(result);
         if (result.length !== 1) {
             return res.send({
                 status: 1,
@@ -26,7 +26,6 @@ router.post('/', (req, res) => {
         }, config.webtokenkey, {
             expiresIn: '3h'
         });
-        console.log(mytoken);
         res.send({
             status: 0,
             msg: 'Login Successfully',

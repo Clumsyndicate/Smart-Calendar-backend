@@ -8,7 +8,6 @@ router.post('/', function (req, res, next) {
         const sql = 'SELECT * FROM users';
         database(sql, decoded.userName, result => {
             if (result.length === 0) {
-                console.log("No user returned from MySQL");
                 res.send({
                     status: 1,
                     msg: "no users found"
@@ -17,32 +16,38 @@ router.post('/', function (req, res, next) {
                 let thisUserClasses = new Set();
                 result.forEach(function (res, index) {
                     if (res.userName === decoded.userName && res.classes) {
-                        console.log(res.classes);
                         JSON.parse(res.classes).forEach(item => thisUserClasses.add(item));
                     }
                 });
+                thisUserClasses.delete("");
 
                 let returnResult = new Array();
                 result.forEach((res, index) => {
+                    if (res.userName === decoded.userName) {
+                        return;
+                    }
                     let {
                         userName,
                         avatar,
                         contact
                     } = res
                     let classes = JSON.parse(res.classes) ?? [];
+
                     let overlapClasses = new Array();
-                    console.log(classes);
                     classes.forEach(c => {
                         if (thisUserClasses.has(c)) {
                             overlapClasses.push(c);
                         }
                     });
+                    if (overlapClasses.length === 0) {
+                        return;
+                    }
                     returnResult.push({
                         name: userName,
                         classes: overlapClasses,
                         total: overlapClasses.length,
                         img: avatar,
-                        contact: contact
+                        contact: JSON.parse(contact)
                     });
                 })
                 // Create items array

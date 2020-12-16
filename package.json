@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/Clumsyndicate/Smart-Calendar-backend/issues"
   },
-  "homepage": "https://github.com/Clumsyndicate/Smart-Calendar-backend#readme"
+  "homepage": "https://github.com/Clumsyndicate/Smart-Calendar-backend#readme",
+  "dependencies": {
+    "filenamify": "^4.2.0",
+    "fs": "^0.0.1-security",
+    "multer": "^1.4.2"
+  }
 }

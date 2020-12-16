@@ -1,23 +1,46 @@
 const express = require('express');
 const router = express.Router();
 const checkToken = require('../funcs/checkToken');
-const getEnrollList = require('../funcs/getEnrollList');
+const database = require('../database');
 
 router.post('/', (req, res) => {
     checkToken(req, res, (decoded) => {
-        // Do something
-        getEnrollList(decoded.userName, (enrollList, contactInfo) => {
-            console.log(enrollList);
-            res.send({
-                status: 0,
-                userName: decoded.userName,
-                msg: 'Send message to profile successfully',
-                array: enrollList,
-                contactInfo: contactInfo
-            })
-        });
-
+        let userName = decoded.userName
+        // console.log(req.body);
+        const sql = `UPDATE users SET schedule='${JSON.stringify(req.body)}' WHERE userName='${userName}'`;
+        // console.log(sql);
+        database(sql, userName, result => {
+            if (result.affectedRows === 1) {
+                res.send({
+                    status: 0,
+                    msg: "Schedule set a success!"
+                })
+            } else {
+                res.send({
+                    status: 1,
+                    msg: "Schedule set failed!"
+                })
+            }
+        })
     });
 });
+
+// router.post('/', (req, res) => {
+//     let userName = req.body.userName;
+//     const sql = `UPDATE users SET schedule='${JSON.stringify(req.body.schedule)}' WHERE userName='${userName}'`;
+//     database(sql, userName, result => {
+//         if (result.affectedRows === 1) {
+//             res.send({
+//                 status: 0,
+//                 msg: "Schedule set a success!"
+//             })
+//         } else {
+//             res.send({
+//                 status: 1,
+//                 msg: "Schedule set failed!"
+//             })
+//         }
+//     })
+// });
 
 module.exports = router;

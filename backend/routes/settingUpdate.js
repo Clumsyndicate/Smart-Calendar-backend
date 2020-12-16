@@ -7,7 +7,6 @@ router.post('/', (req, res) => {
 
     checkToken(req, res, (decoded) => {
         // Do something
-        console.log(req.body);
         setEnrollList(decoded.userName, req.body.array, req.body.contactInfo, success => {
             if (success) {
                 res.send({
