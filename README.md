@@ -1,6 +1,6 @@
 # Smart-Calendar-backend
 
-[![Build Status](https://travis-ci.org/Clumsyndicate/Smart-Calendar-backend.svg?branch=dev)](https://travis-ci.org/Clumsyndicate/Smart-Calendar-backend)
+[![Build Status](https://travis-ci.org/Clumsyndicate/Smart-Calendar-backend.svg?branch=main)](https://travis-ci.org/Clumsyndicate/Smart-Calendar-backend)
 
 This is the backend for Smart Calendar Project. 
 Johnson Zhou (owner of this repo) is primarily responsible for the backend of this CS 97 project. 
