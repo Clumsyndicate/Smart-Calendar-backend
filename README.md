@@ -11,6 +11,10 @@ FYI: The full git verison control history of the frontend can be viewed in the s
 
 The project website is deployed [here](http://149.28.86.112:9000/)
 
+The tar release is [here](https://github.com/Clumsyndicate/Smart-Calendar-backend/releases/tag/v1.0)
+
+To fully test the functionality of the backend, you will need access to our mysql database, whose credentials are stored in `secrets.js`. Please reach out to us if you need this secrets file.
+
 ## Useful commands
 
 - Clone this repo along with frontend submodule.
