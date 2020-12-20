@@ -32,7 +32,7 @@ app.use('/api', function (req, res, next) {
     next();
 });
 
-app.use(express.static(path.join(__dirname, "../frontend/egglenderlogin", "build")));
+app.use(express.static(path.join(__dirname, "../frontend", "build")));
 // app.use(express.static("public"));
 
 
@@ -147,7 +147,7 @@ app.post(
     }
 );
 
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, "../frontend/egglenderlogin", "build", "index.html")))
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, "../frontend", "build", "index.html")))
 
 // app.get('/api/schedule', (req, res) => {
 //     res.sendFile("")

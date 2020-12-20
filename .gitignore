@@ -3,3 +3,4 @@ node_modules/
 build/
 secrets.*
 yarn.lock
+package-lock.json

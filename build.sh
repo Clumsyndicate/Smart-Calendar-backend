@@ -5,6 +5,6 @@
 cd "$(dirname $0)"
 
 npm i --prefix backend
-cd frontend/egglenderlogin
+cd frontend
 yarn
-yarn build
+npm run build

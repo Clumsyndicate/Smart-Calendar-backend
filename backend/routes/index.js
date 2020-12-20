@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendFile(path.join(__dirname, "../frontend/egglenderlogin", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
 });
 
 module.exports = router;
