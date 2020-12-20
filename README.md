@@ -7,6 +7,8 @@ Johnson Zhou (owner of this repo) is primarily responsible for the backend of th
 
 [Link to frontend](https://github.com/Clumsyndicate/Smart-Calendar-Frontend)
 
+The project website is deployed [here](http://149.28.86.112:9000/)
+
 ## Useful commands
 
 - Clone this repo along with frontend submodule.
